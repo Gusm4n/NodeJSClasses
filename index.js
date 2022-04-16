@@ -24,7 +24,13 @@ app.get("/blog/:artigo?", function(req,res){
 //Após isso, fazer uma validação, conforme se inicia na linha 13.
 
 app.get("/youtube", function(req,res){
-    res.send("Faaaala pessoal, bem vindo ao meu canal. =)")
+    var canal = req.query["canal"]
+
+    if(canal){
+        res.send(canal)
+    }else{
+        res.send("Nenhum canal apresentado")
+    }    
 });
 
 app.get("/ola/:nome/:empresa", function(req,res){
@@ -43,7 +49,7 @@ app.listen(4000, function(erro){
  if(erro){
      console.log('Ocorreu um erro...')
  }else{
-     console.log("Servidor iniciado com muito sucesso!")
+     console.log("Servidor iniciado com muito sucesso!!!!")
  }
 });
 
